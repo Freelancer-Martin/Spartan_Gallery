@@ -1,0 +1,14 @@
+.brick {
+    width: 221.2px;
+}
+
+.info {
+       padding: 15px;
+       color: #333;
+     }
+
+
+#freewall {
+ top: 65px;
+ margin: 10px;
+}
