@@ -15,7 +15,7 @@ Class Freewall_Fixed_Img_Container
 
         $html = '';
         $html .= '  <div  class="spartan-gallery-wrapper" >';
-          $html .= '  <div id="freewall" class="masonary" >'; //data-fixSize="true"
+          $html .= '  <div id="nested-grid" class="masonary" >'; //data-fixSize="true"
           // Loop through them and output an image
 
             foreach ( (array) $attachments as $attachment_id => $attachment_val ) {
@@ -23,9 +23,9 @@ Class Freewall_Fixed_Img_Container
               $img_size = array( '120', '160', '180', '240', '280', '320'   );
               $image_options = get_post_meta( $attachment_val->post_parent , 'spartan-gallery-meta', true ); // array
               $image_attributes = wp_get_attachment_image_src( $attachment_val->ID , $size = $image_options['thumbnail_size']  );
-
+              $html .=  '<span class="spartan-gallery-hidden-margin" data-glutter-margin="'.$image_options["img_margin"].'" ></span>';
               if ( $image_options['display_original'] == 'on' xor $image_options['thumbnail_options'] == 'on' ) {
-                $html .=  '<div  class="freewall-brick brick overlay"  data-width="'.$image_options['image_width'].'" data-height="'.$image_options['image_height'].'" data-delay="'.$attachment_id.'"   >';
+                $html .=  '<div  class="freewall-brick brick"  data-width="'.$image_options['image_width'].'" data-height="'.$image_options['image_height'].'" data-delay="'.$attachment_id.'"   >';
               }
 
               $html .=  '<a  href="'.$attachment_val->guid.'"  class="js-img-viwer img-true-location container" data-caption="" data-id="'.$attachment_id.'" >';
@@ -89,22 +89,23 @@ Class Freewall_Fixed_Img_Container
             $html .= '</div>';
           $html .= '</div>';
 
-
+/*
 
           $html .= '';
+
           $html .= '<script>';
             $html .= 'jQuery( document ).ready( function( $ ){';
 
               // chaotic layout
                 $html .= '$(".freewall-brick").each(function() {';
-                    $html .= 'var wall = new Freewall("#freewall");';
+                    $html .= 'var wall = new Freewall("#freewall-fixed");';
                     $html .= 'wall.reset({';
                         $html .= 'animate: true,';
                         //$script .='cellW: 100,';
                         //$script .='cellH: 100,';
                         //fixSize: 1,
-                        $html .= 'gutterY: '.$image_options["img_margin"].',';
-                        $html .= 'gutterX: '.$image_options["img_margin"].',';
+                        //$html .= 'gutterY: '.$image_options["img_margin"].',';
+                        //$html .= 'gutterX: '.$image_options["img_margin"].',';
                         $html .= 'onResize: function() {';
                             $html .= 'wall.fitWidth();';
                         $html .= '}';
@@ -118,7 +119,7 @@ Class Freewall_Fixed_Img_Container
             $html .= ' });';
 
            $html .= '</script>';
-
+*/
            return $html;
       }
 

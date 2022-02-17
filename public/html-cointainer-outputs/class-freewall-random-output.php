@@ -15,7 +15,7 @@ Class Freewall_Random_Container
 
         $html = '';
         $html .=  '  <div  class="spartan-gallery-wrapper" >';
-          $html .= '  <div id="freewall-random" class="masonary" >'; //data-fixSize="true"
+          $html .= '  <div id="image-grid" class="masonary" >'; //data-fixSize="true"
           // Loop through them and output an image
 
 
@@ -26,7 +26,7 @@ Class Freewall_Random_Container
                 $image_attributes = wp_get_attachment_image_src( $attachment_val->ID , $size = $image_options['thumbnail_size']  );
 
                 if ( $image_options['display_original'] == 'on' xor $image_options['thumbnail_options'] == 'on' ) {
-                  $html .=  '<div  class="freewall-brick brick"  data-width="'.$img_size[array_rand( $img_size , 1 )].'" data-height="'.$img_size[array_rand( $img_size , 1 )].'" data-delay="'.$attachment_id.'"   >';
+                  $html .=  '<div  class="brick"  data-width="'.$img_size[array_rand( $img_size , 1 )].'" data-height="'.$img_size[array_rand( $img_size , 1 )].'" data-delay="'.$attachment_id.'"   >';
                 }
 
                 $html .=  '<a  href="'.$attachment_val->guid.'"  class="js-img-viwer img-true-location" data-caption="" data-id="'.$attachment_id.'" >';
@@ -96,30 +96,6 @@ Class Freewall_Random_Container
           $html .= '</div>';
 
 
-
-
-          $html .= '
-              <script>
-                  jQuery( document ).ready( function( $ ){
-                  // Random width layout
-                    var Imagewall = new Freewall("#freewall-random");
-                    Imagewall.reset({
-                      selector: ".freewall-brick",
-                      animate: true,
-                      cellW: 200,
-                      cellH: "auto",
-                      gutterY: '.$image_options["img_margin"].',
-                      gutterX: '.$image_options["img_margin"].',
-                      onResize: function() {
-                        Imagewall.fitWidth();
-                      }
-                    });
-                    $( document ).ready(function() {
-                    Imagewall.fitWidth();
-
-                    });
-                  });
-              </script>';
 
           return $html;
 

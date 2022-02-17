@@ -117,4 +117,7 @@ class Spartan_Gallery_Admin {
 
 	}
 
+
+
+
 }

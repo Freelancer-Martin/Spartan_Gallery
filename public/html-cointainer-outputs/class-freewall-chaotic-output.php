@@ -16,7 +16,7 @@ Class Freewall_Chaotic_Container
 
         $html = '';
         $html .= '  <div  class="spartan-gallery-wrapper" >';
-          $html .= '  <div id="freewall-chaotic" class="masonary" >'; //data-fixSize="true"
+          $html .= '  <div id="flex-grid" class="" >'; //data-fixSize="true"
           // Loop through them and output an image
             $img_size = array( '120', '160', '180', '240', '280', '320'   );
 
@@ -98,32 +98,8 @@ Class Freewall_Chaotic_Container
             $html .= '</div>';
           $html .= '</div>';
 
-          $html .= '';
-          $html .= '<script>';
-            $html .= 'jQuery( document ).ready( function( $ ){';
 
-              // chaotic layout
-                $html .= '$(".freewall-brick-chaotic").each(function() {';
-                    $html .= 'var wall = new Freewall("#freewall-chaotic");';
-                    $html .= 'wall.reset({';
-                        $html .= 'animate: true,';
-                        $html .= 'cellW: 150,';
-                        $html .= 'cellH: 150,';
-                        //fixSize: 1,
-                        $html .= 'gutterY: '.$image_options['img_margin'].',';
-                        $html .= 'gutterX: '.$image_options['img_margin'].',';
-                        $html .=  'onResize: function() {';
-                            $html .= 'wall.fitWidth();';
-                        $html .= '}';
-                    $html .= '});';
-                    $html .= 'wall.addCustomEvent("onBlockLoad", function(setting) {';
-                        $html .= 'console.log(setting);';
-                    $html .= '});';
-                    $html .= 'wall.fitWidth();';
-                $html .= '});';
 
-            $html .= ' });';
-            $html .= '</script>';
 
             return $html;
 

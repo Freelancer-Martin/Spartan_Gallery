@@ -113,15 +113,17 @@ class Spartan_Gallery_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name . 'smartphoto', plugin_dir_url( __FILE__ ) . 'js/jquery-smartphoto.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name . 'smartphoto', plugin_dir_url( __FILE__ ) . 'js/jquery-smartphoto.js', array( 'jquery' ), $this->version, true );
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/spartan-gallery-public.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name . 'freewall-settings', plugin_dir_url( __FILE__ ) . 'js/freewall-settings.js' ,array( 'jquery' ), $this->version, true );
 
 		wp_enqueue_script( $this->plugin_name . 'freewall-min', plugin_dir_url( __FILE__ ) . 'js/freewall.min.js' ,array( 'jquery' ), $this->version, true );
 
 		wp_enqueue_script( $this->plugin_name . 'jquery-responsiveGallery', plugin_dir_url( __FILE__ ) . 'js/jquery.responsiveGallery.js' ,array( 'jquery' ), $this->version, true );
 
 		wp_enqueue_script( $this->plugin_name . 'modernizr.custom', plugin_dir_url( __FILE__ ) . 'js/modernizr.custom.js' ,array( 'jquery' ), $this->version, true );
+
+        wp_enqueue_script( $this->plugin_name . 'freewall-settings', plugin_dir_url( __FILE__ ) . 'js/freewall-settings.js' ,array( 'jquery' ), $this->version, true );
 
 	}
 

@@ -9,4 +9,7 @@ jQuery(document).ready(function($) {
 			$btn_next: $('.responsiveGallery-btn_next')
 		});
 
+
+
 });
+
